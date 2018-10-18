@@ -9,6 +9,7 @@ class MP3Importer
   def loads
     Dir.foreach(self.path) do |fichier|
       @files << fichier
+      puts fichier
     end
   end
 
