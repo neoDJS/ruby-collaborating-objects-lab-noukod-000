@@ -13,8 +13,10 @@ class MP3Importer
   end
 
   def import
-    if fichier.end_with?(".mp3")
-      Song.new_by_filename(fichier)
+    self.files.each do |fichier|
+      if fichier.end_with?(".mp3")
+        Song.new_by_filename(fichier)
+      end
     end
   end
 end
