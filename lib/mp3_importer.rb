@@ -8,7 +8,7 @@ class MP3Importer
   def import
     Dir.foreach(chemin_physique_du_repertoire) do |fichier|
       if fichier.end_with?(".mp3")
-        self.files = fichier
+        self.files << fichier
         Song.new_by_filename(fichier)
       end
     end
