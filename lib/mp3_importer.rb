@@ -6,7 +6,7 @@ class MP3Importer
   end
 
   def import
-    Dir.foreach(chemin_physique_du_repertoire) do |fichier|
+    Dir.foreach(self.path) do |fichier|
       if fichier.end_with?(".mp3")
         self.files << fichier
         Song.new_by_filename(fichier)
