@@ -3,14 +3,18 @@ class MP3Importer
   def initialize(name="")
     self.path = name
     @files = []
+    self.loads
+  end
+
+  def loads
+    Dir.foreach(self.path) do |fichier|
+      self.files << fichier
+    end
   end
 
   def import
-    Dir.foreach(self.path) do |fichier|
-      if fichier.end_with?(".mp3")
-        self.files << fichier
-        Song.new_by_filename(fichier)
-      end
+    if fichier.end_with?(".mp3")
+      Song.new_by_filename(fichier)
     end
   end
 end
