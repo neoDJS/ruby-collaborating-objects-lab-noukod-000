@@ -8,8 +8,9 @@ class MP3Importer
 
   def loads
     Dir.foreach(self.path) do |fichier|
-      @files << fichier
-      puts fichier
+      if fichier.end_with?(".mp3")
+        @files << fichier
+      end
     end
   end
 
